@@ -1,0 +1,159 @@
+/* Conceito: caderno quadriculado — papel, caneta azul e marca-texto amarelo */
+:root {
+  --papel: #f8faff;
+  --grade: #dde7f7;
+  --tinta: #1b2a6b;
+  --texto: #1d2233;
+  --suave: #5a6380;
+  --marca: #ffe45e;
+  --borda: #c9d6ee;
+  --branco: #ffffff;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body {
+  font-family: "Figtree", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background-color: var(--papel);
+  background-image:
+    linear-gradient(var(--grade) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grade) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+h1, h2, h3 { font-family: "Bricolage Grotesque", sans-serif; line-height: 1.15; color: var(--tinta); }
+a { color: var(--tinta); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--tinta); color: #fff; padding: 8px 14px; border-radius: 6px; z-index: 100; }
+.skip:focus { left: 8px; }
+
+/* Topo */
+.topo {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 5vw;
+  background: rgba(248, 250, 255, 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--tinta);
+}
+.marca { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+.menu { display: flex; gap: 22px; }
+.menu a { text-decoration: none; font-weight: 600; padding: 4px 2px; border-bottom: 3px solid transparent; }
+.menu a:hover, .menu a.ativo { border-bottom-color: var(--marca); }
+
+.menu-btn { display: none; background: none; border: 2px solid var(--tinta); border-radius: 8px; padding: 9px 8px; cursor: pointer; }
+.menu-btn span { display: block; width: 22px; height: 3px; background: var(--tinta); margin: 4px 0; border-radius: 2px; }
+
+/* Hero */
+.hero { padding: 12vh 5vw 9vh; max-width: 960px; margin: 0 auto; }
+.hero-oi { font-weight: 600; color: var(--suave); margin-bottom: 10px; }
+.hero h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); font-weight: 800; max-width: 14ch; }
+.marca-texto { background: linear-gradient(transparent 55%, var(--marca) 55%, var(--marca) 92%, transparent 92%); }
+.hero-sub { max-width: 52ch; margin: 22px 0 28px; font-size: 1.15rem; color: var(--texto); }
+.hero-botoes { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600;
+  background: var(--tinta); color: #fff;
+  padding: 12px 22px; border-radius: var(--raio); border: 2px solid var(--tinta);
+  transition: transform .15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-claro { background: var(--branco); color: var(--tinta); }
+
+/* Blocos */
+.bloco { max-width: 960px; margin: 0 auto; padding: 56px 5vw; }
+.bloco h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); display: inline-block; background: linear-gradient(transparent 62%, var(--marca) 62%); margin-bottom: 14px; }
+.bloco h3 { font-size: 1.25rem; margin-bottom: 12px; }
+.intro { color: var(--suave); margin-bottom: 24px; max-width: 60ch; }
+
+.sobre-grade { display: grid; grid-template-columns: 170px 1fr; gap: 32px; align-items: start; margin-top: 18px; }
+.foto {
+  width: 170px; height: 170px; border-radius: 50%;
+  background: var(--tinta); color: var(--marca);
+  display: grid; place-items: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-size: 4.5rem; font-weight: 800;
+  border: 4px solid var(--marca);
+}
+.ficha { background: var(--branco); border: 2px solid var(--borda); border-radius: var(--raio); padding: 6px 18px; margin-bottom: 18px; }
+.ficha div { display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px dashed var(--borda); }
+.ficha div:last-child { border-bottom: 0; }
+.ficha dt { width: 110px; flex-shrink: 0; color: var(--suave); font-weight: 600; }
+.ficha dd { font-weight: 500; }
+
+/* Atividades (é uma sequência no tempo, então usa linha) */
+.linha-tempo { list-style: none; border-left: 3px solid var(--tinta); margin-left: 8px; }
+.linha-tempo li { position: relative; padding: 0 0 22px 24px; }
+.linha-tempo li::before { content: ""; position: absolute; left: -10px; top: 6px; width: 17px; height: 17px; background: var(--marca); border: 3px solid var(--tinta); border-radius: 50%; }
+.linha-tempo h3 { font-size: 1.1rem; margin-bottom: 2px; }
+.linha-tempo .tipo { font-size: .85rem; font-weight: 600; color: var(--suave); }
+.linha-tempo p { margin-top: 4px; }
+
+/* Projetos */
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.filtro { font: inherit; font-weight: 600; cursor: pointer; background: var(--branco); color: var(--tinta); border: 2px solid var(--tinta); border-radius: 999px; padding: 6px 16px; }
+.filtro[aria-pressed="true"] { background: var(--tinta); color: #fff; }
+
+.cartoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.cartao { background: var(--branco); border: 2px solid var(--tinta); border-radius: var(--raio); padding: 20px; box-shadow: 5px 5px 0 var(--tinta); display: flex; flex-direction: column; }
+.cartao h3 { margin-bottom: 8px; }
+.cartao p { margin-bottom: 10px; }
+.cartao .papel-txt { font-size: .95rem; color: var(--suave); }
+.cartao .papel-txt strong { color: var(--texto); }
+.cartao .links { margin-top: auto; padding-top: 8px; font-weight: 600; }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { background: #e8efff; border: 1.5px solid var(--borda); border-radius: 6px; padding: 3px 10px; font-size: .9rem; font-weight: 600; color: var(--tinta); }
+.cartao .tags { margin-bottom: 12px; }
+
+/* Eventos */
+.eventos { list-style: none; display: grid; gap: 14px; }
+.eventos li { background: var(--branco); border: 2px solid var(--borda); border-left: 6px solid var(--marca); border-radius: var(--raio); padding: 14px 18px; }
+.eventos h3 { font-size: 1.1rem; margin-bottom: 2px; }
+.eventos .data { font-size: .9rem; color: var(--suave); font-weight: 600; }
+
+/* Sites */
+.sites { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+.site { background: var(--branco); border: 2px solid var(--tinta); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
+.site .miniatura { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; display: grid; place-items: center; background: var(--tinta); color: var(--marca); font-family: "Bricolage Grotesque", sans-serif; font-size: 2.2rem; font-weight: 800; border-bottom: 2px solid var(--tinta); }
+.site .corpo { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.site h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.site p { margin-bottom: 12px; }
+.site .links { margin-top: auto; display: flex; gap: 16px; font-weight: 600; }
+
+/* Contato */
+.contato-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 18px; }
+.contatos { list-style: none; }
+.contatos li { padding: 8px 0; border-bottom: 1px dashed var(--borda); }
+.contatos span { display: inline-block; width: 90px; color: var(--suave); font-weight: 600; }
+.contatos a { word-break: break-all; }
+
+/* Rodapé */
+.rodape { margin-top: 40px; padding: 24px 5vw; border-top: 2px solid var(--tinta); background: var(--papel); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: var(--suave); }
+
+/* Celular */
+@media (max-width: 760px) {
+  .menu-btn { display: block; }
+  .menu {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--papel);
+    border-bottom: 2px solid var(--tinta);
+  }
+  .menu.aberto { display: flex; }
+  .menu a { padding: 14px 5vw; border-bottom: 1px solid var(--borda); }
+  .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
+  .foto { width: 120px; height: 120px; font-size: 3.2rem; }
+  .ficha div { flex-direction: column; gap: 0; }
+  .hero { padding-top: 8vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

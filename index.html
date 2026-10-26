@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chico — Portfólio</title>
+  <meta name="description" content="Portfólio de Chico, estudante de Informática: projetos, atividades acadêmicas e habilidades.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="#inicio">Chico</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#atividades">Atividades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#sites">Sites</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="hero" id="inicio">
+      <p class="hero-oi">Olá, eu sou o</p>
+      <h1>Chico<span class="marca-texto"> constrói</span> sites e sistemas.</h1>
+      <p class="hero-sub">Estudante de Informática no IFMS, em Nova Andradina (MS). Aqui estão meus projetos, estudos e o que já aprendi até agora.</p>
+      <div class="hero-botoes">
+        <a class="btn" href="#projetos">Ver projetos</a>
+        <a class="btn btn-claro" href="#contato">Falar comigo</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="bloco">
+      <h2>Sobre mim</h2>
+      <div class="sobre-grade">
+        <div class="foto" aria-hidden="true">C</div>
+        <div>
+          <dl class="ficha">
+            <div><dt>Nome</dt><dd>Chico <!-- TROQUE pelo seu nome completo --></dd></div>
+            <div><dt>Curso</dt><dd>Técnico em Informática</dd></div>
+            <div><dt>Instituição</dt><dd>IFMS — Campus Nova Andradina</dd></div>
+            <div><dt>Cidade</dt><dd>Nova Andradina, MS</dd></div>
+          </dl>
+          <p>Gosto de transformar ideias em aplicações que funcionam de verdade. Nos estudos, passo por programação web (front-end e back-end), banco de dados, redes e segurança. Já fiz projetos em grupo e também estágio, e estou sempre buscando praticar com projetos novos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="atividades" class="bloco">
+      <h2>Atividades acadêmicas</h2>
+      <p class="intro">Cursos, disciplinas e trabalhos que fazem parte da minha formação.</p>
+      <ul class="linha-tempo" id="listaAtividades"></ul>
+    </section>
+
+    <section id="projetos" class="bloco">
+      <h2>Projetos</h2>
+      <p class="intro">O que eu desenvolvi e qual foi a minha parte em cada um.</p>
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar projetos"></div>
+      <div class="cartoes" id="listaProjetos"></div>
+    </section>
+
+    <section id="eventos" class="bloco">
+      <h2>Feiras e eventos</h2>
+      <p class="intro">Participações, apresentações e premiações.</p>
+      <ul class="eventos" id="listaEventos"></ul>
+    </section>
+
+    <section id="sites" class="bloco">
+      <h2>Sites desenvolvidos</h2>
+      <p class="intro">Trabalhos publicados que você pode abrir e testar.</p>
+      <div class="sites" id="listaSites"></div>
+    </section>
+
+    <section id="contato" class="bloco">
+      <h2>Habilidades e contato</h2>
+      <div class="contato-grade">
+        <div>
+          <h3>Tecnologias que conheço</h3>
+          <ul class="tags" id="listaHabilidades"></ul>
+        </div>
+        <div>
+          <h3>Onde me encontrar</h3>
+          <ul class="contatos">
+            <li><span>E-mail</span> <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></li>
+            <li><span>GitHub</span> <a href="https://github.com/seu-usuario" target="_blank" rel="noopener">github.com/seu-usuario</a></li>
+            <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener">linkedin.com/in/seu-perfil</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>© <span id="ano"></span> Chico · IFMS Nova Andradina</p>
+    <a href="#inicio">Voltar ao topo</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
